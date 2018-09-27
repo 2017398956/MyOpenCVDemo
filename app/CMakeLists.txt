@@ -3,7 +3,11 @@
 
 # Sets the minimum version of CMake required to build the native library.
 
+#CMake版本信息
 cmake_minimum_required(VERSION 3.4.1)
+#支持-std=gnu++11
+set(CMAKE_VERBOSE_MAKEFILE on)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.
@@ -18,6 +22,13 @@ add_library( # Sets the name of the library.
 
         # Provides a relative path to your source file(s).
         src/main/cpp/native-lib.cpp)
+
+add_library(
+        mixed_sample
+
+        SHARED
+
+        src/main/cpp/jni_part.cpp)
 
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
@@ -42,3 +53,27 @@ target_link_libraries( # Specifies the target library.
         # Links the target library to the log library
         # included in the NDK.
         ${log-lib})
+
+target_link_libraries( # Specifies the target library.
+        mixed_sample
+
+        ${log-lib})
+
+
+#工程路径
+set(pathToProject ../.)
+#OpenCV-android-sdk路径
+set(pathToOpenCv D:\\OpenCV\\opencv-3.4.3-android-sdk\\OpenCV-android-sdk\\sdk)
+
+#配置加载 native 依赖
+include_directories(${pathToProject}/native/include)
+
+#动态方式加载
+add_library( lib_opencv SHARED IMPORTED )
+
+#引入libopencv_java3.so文件
+set_target_properties(lib_opencv
+        PROPERTIES
+        IMPORTED_LOCATION
+        ${pathToProject}/opencvlibrary/libs/${ANDROID_ABI}/libopencv_java3.so)
+

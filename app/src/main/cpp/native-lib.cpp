@@ -1,8 +1,9 @@
 #include <jni.h>
 #include <string>
 
-extern "C" JNIEXPORT jstring JNICALL
-Java_personal_nfl_opencv_demo_MainActivity_stringFromJNI(
+extern "C"
+
+JNIEXPORT jstring JNICALL Java_personal_nfl_opencv_demo_MainActivity_stringFromJNI(
         JNIEnv *env,
         jobject /* this */) {
     std::string hello = "Hello from C++";

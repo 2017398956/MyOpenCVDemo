@@ -39,29 +39,22 @@ public class CameraPreviewActivity extends Activity implements CameraBridgeViewB
         }
     };
 
-    /**
-     * Called when the activity is first created.
-     */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        Log.i(TAG, "called onCreate");
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
         setContentView(R.layout.activity_camera_preview);
-
-        mOpenCvCameraView = (CameraBridgeViewBase) findViewById(R.id.tutorial1_activity_java_surface_view);
-
+        mOpenCvCameraView = findViewById(R.id.tutorial1_activity_java_surface_view);
         mOpenCvCameraView.setVisibility(SurfaceView.VISIBLE);
-
         mOpenCvCameraView.setCvCameraViewListener(this);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        if (mOpenCvCameraView != null)
+        if (mOpenCvCameraView != null) {
             mOpenCvCameraView.disableView();
+        }
     }
 
     @Override
@@ -78,16 +71,20 @@ public class CameraPreviewActivity extends Activity implements CameraBridgeViewB
 
     public void onDestroy() {
         super.onDestroy();
-        if (mOpenCvCameraView != null)
+        if (mOpenCvCameraView != null) {
             mOpenCvCameraView.disableView();
+        }
     }
 
+    @Override
     public void onCameraViewStarted(int width, int height) {
     }
 
+    @Override
     public void onCameraViewStopped() {
     }
 
+    @Override
     public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
         return inputFrame.rgba();
     }
