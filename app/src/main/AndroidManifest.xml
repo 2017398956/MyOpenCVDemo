@@ -13,11 +13,14 @@
         <activity android:name=".activity.CameraPreviewActivity" />
         <activity android:name=".activity.MixedProcessingActivity" />
         <activity android:name=".activity.CameraControlActivity" />
-        <activity android:name=".activity.Image2GreyActivity"></activity>
-        <activity android:name=".activity.ImageManipulationsActivity">
+        <activity android:name=".activity.Image2GreyActivity" />
+        <activity android:name=".activity.ImageManipulationsActivity" />
+        <activity android:name=".activity.FaceDetectActivity" />
+        <activity android:name=".activity.ColorBlobDetectionActivity"></activity>
+        <activity android:name=".activity.CameraCalibrationActivity">
 
         </activity>
-        <activity android:name=".activity.FaceDetectActivity">
+        <activity android:name=".activity.Puzzle15Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
