@@ -9,11 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".activity.CameraPreviewActivity">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".activity.CameraPreviewActivity" />
+        <activity android:name=".activity.MixedProcessingActivity" />
+        <activity android:name=".activity.CameraControlActivity" />
+        <activity android:name=".activity.Image2GreyActivity"></activity>
+        <activity android:name=".activity.ImageManipulationsActivity">
 
         </activity>
-        <activity android:name=".activity.MixedProcessingActivity">
+        <activity android:name=".activity.FaceDetectActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

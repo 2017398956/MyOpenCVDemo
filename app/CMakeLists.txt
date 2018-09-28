@@ -80,3 +80,31 @@ target_link_libraries( # Specifies the target library.
         opencv_java3
         ${log-lib})
 
+# OpenCVHelper
+add_library(
+        OpenCVHelper
+
+        SHARED
+
+        src/main/cpp/opencv_helper.cpp)
+
+target_link_libraries( # Specifies the target library.
+        OpenCVHelper
+
+        opencv_java3
+        ${log-lib})
+
+# 人脸检测
+add_library(
+        detection_based_tracker
+
+        SHARED
+
+        src/main/cpp/DetectionBasedTracker_jni.cpp)
+
+target_link_libraries( # Specifies the target library.
+        detection_based_tracker
+
+        opencv_java3
+        ${log-lib})
+
