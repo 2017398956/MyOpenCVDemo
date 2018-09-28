@@ -4,10 +4,6 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/features2d.hpp>
 
-//#include "../head/opencv2/core/mat.hpp"
-//#include "../head/opencv2/imgproc.hpp"
-//#include "../head/opencv2/features2d.hpp"
-
 #include <vector>
 
 using namespace std;

@@ -23,13 +23,6 @@ add_library( # Sets the name of the library.
         # Provides a relative path to your source file(s).
         src/main/cpp/native-lib.cpp)
 
-add_library(
-        mixed_sample
-
-        SHARED
-
-        src/main/cpp/jni_part.cpp)
-
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
 # default, you only need to specify the name of the public NDK library
@@ -54,26 +47,36 @@ target_link_libraries( # Specifies the target library.
         # included in the NDK.
         ${log-lib})
 
-target_link_libraries( # Specifies the target library.
-        mixed_sample
-
-        ${log-lib})
-
-
+# find_path(rootPath )
+# 暂时没有找到获取绝对路径的方法，所以更改工作环境时，这里都要设置一次项目的绝对路径
+set(rootPath D:\\Android\\workplace\\MyOpenCVDemo)
 #工程路径
-set(pathToProject ../.)
+set(pathToProject ${rootPath})
 #OpenCV-android-sdk路径
-set(pathToOpenCv D:\\OpenCV\\opencv-3.4.3-android-sdk\\OpenCV-android-sdk\\sdk)
+set(pathToOpenCv ${rootPath}/native)
 
 #配置加载 native 依赖
-include_directories(${pathToProject}/native/include)
+include_directories(${pathToOpenCv}/jni/include)
 
-#动态方式加载
-add_library( lib_opencv SHARED IMPORTED )
+# 动态方式加载
+add_library(opencv_java3 STATIC IMPORTED)
 
-#引入libopencv_java3.so文件
-set_target_properties(lib_opencv
+# 设置库路径
+set_target_properties(opencv_java3
         PROPERTIES
         IMPORTED_LOCATION
         ${pathToProject}/opencvlibrary/libs/${ANDROID_ABI}/libopencv_java3.so)
+
+add_library(
+        mixed_sample
+
+        SHARED
+
+        src/main/cpp/jni_part.cpp)
+
+target_link_libraries( # Specifies the target library.
+        mixed_sample
+
+        opencv_java3
+        ${log-lib})
 
