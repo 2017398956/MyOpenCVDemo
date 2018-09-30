@@ -15,17 +15,19 @@
         <activity android:name=".activity.CameraControlActivity" />
         <activity android:name=".activity.Image2GreyActivity" />
         <activity android:name=".activity.ImageManipulationsActivity" />
-        <activity android:name=".activity.FaceDetectActivity" />
-        <activity android:name=".activity.ColorBlobDetectionActivity"></activity>
-        <activity android:name=".activity.CameraCalibrationActivity">
-
-        </activity>
-        <activity android:name=".activity.Puzzle15Activity">
+        <activity android:name=".activity.FaceDetectActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.ColorBlobDetectionActivity"></activity>
+        <activity android:name=".activity.CameraCalibrationActivity">
+
+        </activity>
+        <activity android:name=".activity.Puzzle15Activity">
+
         </activity>
     </application>
 

@@ -3,11 +3,11 @@
 
 # Sets the minimum version of CMake required to build the native library.
 
-#CMake版本信息
+# CMake版本信息
 cmake_minimum_required(VERSION 3.4.1)
-#支持-std=gnu++11
-set(CMAKE_VERBOSE_MAKEFILE on)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
+# 支持-std=gnu++11 , 由于 build.gradle 中配置了，所以这里可以注释掉
+# set(CMAKE_VERBOSE_MAKEFILE on)
+# set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=gnu++11")
 
 # Creates and names a library, sets it as either STATIC
 # or SHARED, and provides the relative paths to its source code.

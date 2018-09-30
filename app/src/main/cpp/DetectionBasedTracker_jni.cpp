@@ -33,6 +33,8 @@ public:
              maxObjSize.height);
 //        Detector->detectMultiScale(Image, objects, scaleFactor, minNeighbours, 0, minObjSize,
 //                                   maxObjSize);
+        // 同样是一个 class 中的方法下面的却不会报错，不知道为什么，等学习 C++ 后再看吧
+        Detector->getOldCascade() ;
         LOGD("CascadeDetectorAdapter::Detect: end");
     }
 
