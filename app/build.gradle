@@ -12,6 +12,14 @@ android {
 
         externalNativeBuild {
             cmake {
+                // 如果 android-ndk-r16b 下编译不通过可以试试加上下面的参数，不要用版本更高的 ndk
+                // -DANDROID_STL=c++_shared 应该改为 -DANDROID_STL=gnustl_static
+//                arguments '-DANDROID_PLATFORM=android-19',
+//                        '-DANDROID_TOOLCHAIN=clang',
+//                        '-DANDROID_STL=gnustl_static',
+//                        '-DCMAKE_BUILD_TYPE=Release ..'
+                // 这个参数是从网上找的，先不管
+                // cppFlags "-std=c++11 -frtti -O3 -fexceptions"
                 cppFlags "-std=c++11 -frtti -fexceptions"
                 abiFilters 'x86', 'armeabi-v7a'
 //, 'arm64-v8a', 'mips', 'mips64', 'x86_64', 'armeabi'
