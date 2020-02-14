@@ -49,7 +49,7 @@ target_link_libraries( # Specifies the target library.
 
 # find_path(rootPath )
 # 暂时没有找到获取绝对路径的方法，所以更改工作环境时，这里都要设置一次项目的绝对路径
-set(rootPath D:\\Android\\workplace\\MyOpenCVDemo)
+set(rootPath D:\\mysoftware\\Android\\projects\\MyOpenCVDemo)
 #工程路径
 set(pathToProject ${rootPath})
 #OpenCV-android-sdk路径
